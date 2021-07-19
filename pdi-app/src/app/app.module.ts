@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditorComponent } from './pages/editor/editor.component';
+import { AboutComponent } from './pages/about/about.component';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { ImagePreviewComponent } from './components/image-preview/image-preview.component';
 
@@ -23,6 +24,7 @@ import { MatListModule } from '@angular/material/list';
     EditorComponent,
     ImageUploaderComponent,
     ImagePreviewComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

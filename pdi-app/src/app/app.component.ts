@@ -9,6 +9,7 @@ export class AppComponent {
   public title = 'pdi-app';
 
   public menu = [
-    { name: 'Início', icon: 'home', link: '/editor' },
+    { name: 'Editor de imagens', icon: 'home', link: '/editor' },
+    { name: 'Sobre', icon: 'info', link: '/about' },
   ];
 }

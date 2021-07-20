@@ -1,1 +1,13 @@
-<p>image-uploader works!</p>
+<label>
+  <input
+    class="file-input"
+    type="file"
+    name="file"
+    #fileInput
+    (change)="onChange(fileInput.files[0])"
+  />
+  <figure>
+    <img *ngIf="!loaded" src="./assets/add-pic.png" width="280" alt="">
+    <canvas #imagePreviewElem id="image-preview" width="280" height="280"></canvas>
+  </figure>
+</label>

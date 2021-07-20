@@ -4,7 +4,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { EditorComponent } from './pages/editor/editor.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/intro' },
+  { path: '', pathMatch: 'full', redirectTo: '/editor' },
   { path: 'editor', component: EditorComponent },
   { path: 'about', component: AboutComponent },
 ];

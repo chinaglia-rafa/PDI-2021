@@ -16,6 +16,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
+import { FiltersComponent } from './components/filters/filters.component';
 
 
 @NgModule({
@@ -25,6 +28,7 @@ import { MatListModule } from '@angular/material/list';
     ImageUploaderComponent,
     ImagePreviewComponent,
     AboutComponent,
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,8 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatMenuModule,
     MatListModule,
+    MatGridListModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

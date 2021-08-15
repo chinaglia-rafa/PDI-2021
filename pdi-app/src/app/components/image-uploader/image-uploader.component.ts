@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ImageProcessorService } from 'src/app/services/image-processor/image-processor.service';
 import { UploaderService, Image } from 'src/app/services/uploader/uploader.service';
 
@@ -7,7 +7,7 @@ import { UploaderService, Image } from 'src/app/services/uploader/uploader.servi
   templateUrl: './image-uploader.component.html',
   styleUrls: ['./image-uploader.component.scss']
 })
-export class ImageUploaderComponent implements OnInit {
+export class ImageUploaderComponent {
 
   @ViewChild('imagePreviewElem') imagePreview: ElementRef;
   loaded: boolean = false;
@@ -17,13 +17,14 @@ export class ImageUploaderComponent implements OnInit {
     private processor: ImageProcessorService
   ) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.uploader.loadedImage.subscribe((image) => {
       if (!image) return;
       // console.log('Resulting image is =', image);
       this.loaded = true;
       this.paint(image);
       /** Avisa o serviço de processamento de imagens que uma imagem foi carregada */
+      this.processor.reset();
       this.processor.loadedImage.next(image);
     });
   }

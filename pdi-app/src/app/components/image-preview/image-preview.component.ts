@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ConfigService } from 'src/app/services/config/config.service';
 import { ImageProcessorService } from 'src/app/services/image-processor/image-processor.service';
 import { Image } from 'src/app/services/uploader/uploader.service';
 
@@ -7,14 +8,17 @@ import { Image } from 'src/app/services/uploader/uploader.service';
   templateUrl: './image-preview.component.html',
   styleUrls: ['./image-preview.component.scss']
 })
-export class ImagePreviewComponent implements OnInit {
+export class ImagePreviewComponent {
 
   @ViewChild('imagePreviewElem') imagePreview: ElementRef;
   loaded: boolean = false;
 
-  constructor(private processor: ImageProcessorService) { }
+  constructor(
+    private processor: ImageProcessorService,
+    public configService: ConfigService
+  ) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.processor.loadedImage.subscribe((image) => {
       if (!image) return;
       this.loaded = true;

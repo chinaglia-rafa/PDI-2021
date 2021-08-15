@@ -1,0 +1,21 @@
+<div class="filter-item">
+  <mat-slide-toggle
+    #pixelatedToggleId
+    (change)="toggleChangePixelated($event)"
+    matTooltip="Habilita a suavização de pixels do navegador para imagens superdimensionadas."
+    matTooltipPosition="after"
+    matTooltipClass="tooltip--big"
+  >
+    Suavizar pixels na visualização
+  </mat-slide-toggle>
+  <br>
+  <mat-slide-toggle
+    #realSizeToggleId
+    (change)="toggleChangeRealSize($event)"
+    matTooltip="Redimensiona a imagem para seu tamanho real."
+    matTooltipPosition="after"
+    matTooltipClass="tooltip--big"
+  >
+    Tamanho real
+  </mat-slide-toggle>
+</div>

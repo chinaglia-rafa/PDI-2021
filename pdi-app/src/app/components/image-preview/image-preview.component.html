@@ -1,1 +1,26 @@
-<canvas #imagePreviewElem id="image-preview" width="280" height="280"></canvas>
+<canvas
+  #imagePreviewElem
+  [class.pixelated]="configService.isPixelated()"
+  [class.forceSize]="!configService.isRealSize()"
+  id="image-preview"
+  width="280"
+  height="280"
+></canvas>
+<br>
+<div class="flex" *ngIf="loaded">
+  <mat-icon
+    [matTooltip]="!configService.isPixelated() ? 'Suavização de pixels ativada' : 'Suavização de pixels desativada'"
+    matTooltipClass="tooltip--big"
+    [class.active]="!configService.isPixelated()"
+  >
+    {{ configService.isPixelated() ? 'blur_off' : 'blur_on' }}
+  </mat-icon>
+  <mat-icon
+    [matTooltip]="configService.isRealSize() ? 'Imagem em tamanho real' : 'Imagem redimensionada'"
+    matTooltipClass="tooltip--big"
+    [class.active]="configService.isRealSize()"
+  >
+    {{ !configService.isRealSize() ? 'photo_size_select_actual' : 'photo_size_select_large' }}
+  </mat-icon>
+
+</div>

@@ -19,6 +19,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { FiltersComponent } from './components/filters/filters.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { InvertComponent } from './components/filters/invert/invert.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ConfigComponent } from './components/filters/config/config.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RealcesComponent } from './components/filters/realces/realces.component';
+
 
 
 @NgModule({
@@ -29,6 +36,9 @@ import { FiltersComponent } from './components/filters/filters.component';
     ImagePreviewComponent,
     AboutComponent,
     FiltersComponent,
+    InvertComponent,
+    ConfigComponent,
+    RealcesComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +53,9 @@ import { FiltersComponent } from './components/filters/filters.component';
     MatListModule,
     MatGridListModule,
     HttpClientModule,
+    MatTabsModule,
+    MatSlideToggleModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

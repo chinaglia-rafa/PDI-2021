@@ -38,12 +38,13 @@ export class UploaderService {
     let image = new Image();
 
     reader.onloadend = (e) => {
-      const imageData = String(reader.result).split("\n");
+      const imageData = String(reader.result).replace("\r", "").split("\n");
       // console.log('imageData =', imageData);
       if (imageData[0].toUpperCase() != "P2") {
         throw "Formato não suportado. Os formatos suportados são: [P2]";
       }
-      image.format = imageData[0];
+      image.format = imageData[0].toUpperCase();
+      let pixelsStart = 4;
       let dimensions = imageData[1].split(" ");
       /** Caso as dimensões estejam em linhas diferentes ao invés de na mesma linha, os índices são atribuídos de forma diferente */
       if (dimensions.length === 1) {
@@ -56,9 +57,10 @@ export class UploaderService {
         image.width = Number(dimensions[0]);
         image.height = Number(dimensions[1]);
         image.max = Number(imageData[2]);
+        pixelsStart = 3;
       }
 
-      for (let i = 4; i < imageData.length; i++) {
+      for (let i = pixelsStart; i < imageData.length; i++) {
         const pixel = new Pixel();
         pixel.r = Number(imageData[i]);
         image.data.push(pixel);
